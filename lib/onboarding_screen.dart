@@ -52,7 +52,7 @@ class _onboardingState extends State<onboarding> {
                 onlastpage?
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomePage()));
                     },
                     child: Text("Done")):
                   GestureDetector(
