@@ -3,13 +3,20 @@
 import 'package:flutter/material.dart';
 
 import '../util/job_card.dart';
+import '../util/recent_job_card.dart';
 
 class HomeNav extends StatelessWidget {
   HomeNav({Key? key}) : super(key: key);
   final List jobForYou =[
-    ["uber","UI Designer",'lib/icons/uber.png','40'],
-    ["Google","UI Designer",'lib/icons/uber.png','40'],
-    ["Nike","UI Designer",'lib/icons/uber.png','40']
+    ["uber","UI Designer",'lib/icons/uber.png',40],
+    ["Google","Product Dev",'lib/icons/google.png',80],
+    ["Apple","Software Dev",'lib/icons/apple.png',90]
+  ];
+  final List recentJob =[
+    ["Nike","Web Designer",'lib/icons/nike.png',20],
+    ["Apple","Senior Dev",'lib/icons/apple.png',30],
+    ["Google","Product Dev",'lib/icons/google.png',60],
+    
   ];
 
   @override
@@ -113,17 +120,39 @@ class HomeNav extends StatelessWidget {
           child:
           ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 3,
+            itemCount: jobForYou.length,
             itemBuilder:(context,index){
             return jobCard(
-              companyName: "uber",
-              jobTitle: "ui designer",
-              logoImagePath: "lib/icons/uber.png",
-              hourlyRate: 30,
+              companyName: jobForYou[index][0],
+              jobTitle: jobForYou[index][1],
+              logoImagePath: jobForYou[index][2],
+              hourlyRate: jobForYou[index][3],
             );
           }),
-         )
+         ),
+         SizedBox(height: MediaQuery.of(context).size.height/35,),
         // recently added job tiles
+         Padding(
+          padding: const EdgeInsets.only(left: 25.0),
+          child: Text(
+            "Recently Added",
+            style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+          ),
+        ),
+        // SizedBox(height: MediaQuery.of(context).size.height/50,),
+        Expanded(child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal:25.0),
+          child: ListView.builder(
+            itemCount: recentJob.length,
+            itemBuilder: ((context, index) {
+            return recentJobCard(
+              companyName: recentJob[index][0],
+              jobTitle: recentJob[index][1],
+              logoImagePath: recentJob[index][2],
+              hourlyRate: recentJob[index][3],
+            );
+          })),
+        ))
       ]),
     );
   }
