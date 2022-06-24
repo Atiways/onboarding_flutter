@@ -5,7 +5,7 @@ class SettingsNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body:Center(
         child: Text("Settings"),
       ),
     );

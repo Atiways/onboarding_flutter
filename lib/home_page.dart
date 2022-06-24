@@ -15,7 +15,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+         elevation: 0,
+      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: 
       BottomNavigationBar(
@@ -30,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       ]),
     );
   }
-  final List<Widget> _pages =[
+  final List<Widget>_pages =[
     HomeNav(),
     MessageNav(),
     SettingsNav(),

@@ -29,7 +29,7 @@ class _onboardingState extends State<onboarding> {
               });
             } ,
             controller: _controller,
-            children: [
+            children: const [
               introScreen1(),
               introScreen2(),
               introScreen3(),
@@ -37,7 +37,7 @@ class _onboardingState extends State<onboarding> {
           ),
           //dot indicators
           Container(
-              alignment: Alignment(0, 0.75),
+              alignment: const Alignment(0, 0.75),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -46,7 +46,7 @@ class _onboardingState extends State<onboarding> {
                       _controller.jumpToPage(2);
                     },
                     
-                    child: Text("Skip"),
+                    child: const Text("Skip"),
                   ),
                   SmoothPageIndicator(controller: _controller, count: 3),
                 onlastpage?
@@ -54,13 +54,12 @@ class _onboardingState extends State<onboarding> {
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomePage()));
                     },
-                    child: Text("Done")):
+                    child: const Text("Done")):
                   GestureDetector(
                     onTap: (){
-                      _controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+                      _controller.nextPage(duration:  const Duration(milliseconds: 500), curve: Curves.easeIn);
                     },
-                    child: Text("Next")),
-
+                    child: const Text("Next")),
                 ],
               )),
         ],
