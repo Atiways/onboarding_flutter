@@ -15,9 +15,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-         elevation: 0,
-      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: 
       BottomNavigationBar(
