@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding_practice/onboarding_screen.dart';
-
-void main() {
+import 'package:get_storage/get_storage.dart';
+void main() async{
+  await GetStorage.init('settingsContainer');
   runApp(const MyApp());
 }
 
@@ -11,15 +12,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:  MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
+  
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
